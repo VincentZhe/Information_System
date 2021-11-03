@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WEB700</title>
+    <link rel="stylesheet" href="/css/theme.css" type="text/css" />
+    <meta charset="UTF-8" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Zhe Tian</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/htmlDemo">Html Demo</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/students/add">Add Students</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/students">Students</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/tas">Teaching Assistants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/courses">Courses</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <main class="col-md-12">
+          <!-- Start your code here -->
+          <h2>Tables</h2>
+          <br />
+          <br />
+          <table border="1">
+            <caption>
+              Test Score Information
+            </caption>
+
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>ClassRoom</th>
+                <th>Mathematics</th>
+                <th>Physics</th>
+                <th>Chemistry</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>01/08/2021</td>
+                <td>2</td>
+                <td>85</td>
+                <td>90</td>
+                <td>80</td>
+              </tr>
+              <tr>
+                <td>01/09/2021</td>
+                <td>3</td>
+                <td>83</td>
+                <td>92</td>
+                <td>85</td>
+              </tr>
+              <tr>
+                <td>01/10/2021</td>
+                <td>1</td>
+                <td>88</td>
+                <td>86</td>
+                <td>85</td>
+              </tr>
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <th colspan="2">AverageScore</th>
+                <th>85.3</th>
+                <th>89.3</th>
+                <th>83.3</th>
+              </tr>
+            </tfoot>
+          </table>
+          <hr />
+
+          <br />
+          <br />
+          <table border="1">
+            <caption>
+              Monthly Assignment Information
+            </caption>
+
+            <thead>
+              <tr>
+                <th>Month</th>
+                <th>Program</th>
+                <th>Java</th>
+                <th>Web</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>9</td>
+                <td>DAD</td>
+                <td>90</td>
+                <td>88</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>DAD</td>
+                <td>88</td>
+                <td>95</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>DAD</td>
+                <td>91</td>
+                <td>96</td>
+              </tr>
+            </tbody>
+
+            <tfoot>
+              <tr>
+                <th rowspan="2">9</th>
+                <th rowspan="2">DAD</th>
+                <th>TotalScore is 269</th>
+                <th>TotalScore is 279</th>
+              </tr>
+              <tr>
+                <th>AverageScore is 89.6</th>
+                <th>AverageScore is 93</th>
+              </tr>
+            </tfoot>
+          </table>
+          <p>
+            Those two tables will demostrate courses score and assignment score
+          </p>
+          <br />
+          <br />
+          <hr />
+          <h2>Lists</h2>
+          <ul>
+            <li>
+              All Students
+              <ol>
+                <li>Search by FirstName</li>
+                <li>Search by LastName</li>
+                <li>Search by StudentNumber</li>
+              </ol>
+            </li>
+
+            <li>
+              All Courses
+              <ol>
+                <li>Search by courseId</li>
+                <li>Search by courseCode</li>
+                <li>Search by courseDescription</li>
+              </ol>
+            </li>
+
+            <li>
+              All TAs
+              <ol>
+                <li>Search by FirstName</li>
+                <li>Search by LastName</li>
+                <li>Search by StudentNumber</li>
+              </ol>
+            </li>
+
+            <li>Students by Course</li>
+
+            <li>A Single Student by Student Number</li>
+          </ul>
+          <p>
+            Those Lists help you find exact information related to students or
+            courses
+          </p>
+          <hr />
+          <h2>Images</h2>
+          <br />
+          <img
+            src="https://as01.epimg.net/en/imagenes/2021/08/24/nba/1629825100_975269_1629825494_noticia_normal.jpg"
+            width="400"
+            alt="The picture of Kobe Bryant"
+          />
+          <hr />
+          <img
+            src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5fad975faa9c4c321e144b8d%2FKobe-Bryant-dribbles-the-ball-up-the-court-during-a-Los-Angeles-Lakers-basketball%2F0x0.jpg%3FcropX1%3D229%26cropX2%3D2753%26cropY1%3D0%26cropY2%3D1893"
+            width="400"
+            alt="Kobe Bryant"
+          />
+          <hr />
+          <img
+            src="https://m.media-amazon.com/images/I/71LpYIrW9eL._AC_SL1124_.jpg"
+            width="400"
+            alt="NBA CHampionship"
+          />
+          <br />
+          <p>
+            You should work hard as like as Kobe Bryant, at eventually you can
+            celebrate your success.
+          </p>
+          <br />
+          <hr />
+          <h2>Audio</h2>
+          <br />
+          <audio controls>
+            <source
+              src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-audio.mp3"
+              type="audio/mp3"
+            />
+            <source
+              src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-audio.ogg"
+              type="audio/ogg"
+            />
+            <br />
+            <p>
+              Sorry, your browser doesn't support HTML5 audio. Here is a
+              <a
+                href="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-audio.mp3"
+                >link to the audio</a
+              >
+              instead
+            </p>
+            .
+          </audio>
+          <br />
+          <br />
+          <p>This is demo Audio.</p>
+          <br />
+          <hr />
+          <br />
+          <h2>Video</h2>
+
+          <video width="320" height="240" controls>
+            <source
+              src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-video.mp4"
+              type="video/mp4"
+            />
+            <source
+              src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-video.ogg"
+              type="video/ogg"
+            />
+            <source
+              src="https://pat-crawford-sdds.netlify.app/shared/fall-2021/web700/A3/sample-video.webm"
+              type="video/webm"
+            />
+            <br />
+            <p>Sorry, your browser doesn't support HTML5 video</p>
+          </video>
+          <br />
+          <br />
+          <p>This is demo Video.</p>
+
+          <!-- End your code here  -->
+        </main>
+      </div>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

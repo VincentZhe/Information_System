@@ -1,0 +1,100 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+
+.navbar.navbar-expand-lg.navbar-light.bg-light {
+  background: blue;
+  background: linear-gradient(
+    to bottom,
+    rgb(154, 154, 197),
+    rgb(180, 179, 179)
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(155, 220, 242, 1);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(155, 220, 242, 1);
+  box-shadow: 10px 10px 5px 0px rgba(155, 220, 242, 1);
+}
+
+.navbar-light a.navbar-brand {
+  font-family: "Great Vibes", cursive;
+  color: gold;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.collapse.navbar-collapse a.nav-link {
+  font-family: "Great Vibes", cursive;
+  color: purple;
+}
+
+div.collapse.navbar-collapse a.nav-link:hover {
+  color: gold;
+}
+
+body {
+  background: rgb(235, 186, 235);
+  background: linear-gradient(
+    to bottom,
+    rgba(54, 54, 54, 0.514),
+    rgb(201, 201, 207)
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.btn.btn-primary {
+  background: rgb(235, 186, 235);
+  background: linear-gradient(
+    to bottom,
+    rgb(163, 116, 240),
+    rgb(201, 201, 207)
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: auto;
+  -webkit-box-shadow: 10px 10px 5px 0px rgba(155, 220, 242, 1);
+  -moz-box-shadow: 10px 10px 5px 0px rgba(155, 220, 242, 1);
+  box-shadow: 10px 10px 5px 0px rgba(155, 220, 242, 1);
+}
+
+input.btn.btn-primary:hover {
+  color: rgb(81, 230, 81);
+}
+
+tbody tr:nth-child(odd) {
+  background: rgb(235, 186, 235);
+  background: linear-gradient(
+    to bottom,
+    rgb(163, 116, 240),
+    rgb(201, 201, 207)
+  );
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: auto;
+  height: auto;
+}
+
+h2 {
+  font-family: "Great Vibes", cursive;
+  color: gold;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.container .row .col-md-12 a {
+  color: purple;
+}
+
+.container .row .col-md-12 a:hover {
+  color: gold;
+}
+
+.container .row .col-md-12 legend {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-family: "Great Vibes", cursive;
+  color: yellow;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}

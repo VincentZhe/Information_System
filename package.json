@@ -1,0 +1,16 @@
+{
+  "name": "web700-app",
+  "version": "1.0.0",
+  "description": "web700-app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "ZheTian-ztian18",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "heroku": "^7.59.1"
+  }
+}
