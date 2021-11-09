@@ -109,3 +109,26 @@ module.exports.addStudent = function (studentsData) {
     resolve();
   });
 };
+// Build getCourseById function
+module.exports.getCourseById = function (id) {
+  return new Promise((resolve, reject) => {
+    for (let i = 0; i < dataCollection.courses.length; i++) {
+      if (dataCollection.courses[i].courseId == id) {
+        resolve(dataCollection.courses[i]);
+      }
+    }
+    if (!dataCollection.courses[i]) {
+      reject("query returned 0 results");
+    }
+  });
+};
+// Build updateStudent
+module.exports.updateStudent = function (studentData) {
+  return new Promise((resolve, reject) => {
+    for (let i = 0; i < dataCollection.students.length; i++) {
+      if (dataCollection.students[i].studentNum == studentData){
+        
+      }
+    }
+  });
+};

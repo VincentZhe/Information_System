@@ -12,7 +12,7 @@
     />
   </head>
 
-  <body>
+  <body >
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#">Zhe Tian</a>
       <button
@@ -29,22 +29,19 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-          <li class="nav-item">
-            <a class="nav-link" href="/htmlDemo">Html Demo</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/students/add">Add Students</a>
-          </li>
+          {{#navLink "/"}}Home{{/navLink}}
+          {{#navLink "/about"}}About{{/navLink}}
+          {{#navLink "/htmlDemo"}}Html Demo{{/navLink}}
+          {{#navLink "/students/add"}}Add Students{{/navLink}}
+          
         </ul>
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="/students">Students</a>
           </li>
-          <li class="nav-item">
+          {{!-- <li class="nav-item">
             <a class="nav-link" href="/tas">Teaching Assistants</a>
-          </li>
+          </li> --}}
           <li class="nav-item">
             <a class="nav-link" href="/courses">Courses</a>
           </li>
@@ -52,45 +49,8 @@
       </div>
     </nav>
 
-    <div class="container">
-      <div class="row">
-        <main class="col-md-12">
-          <!-- Start your code here -->
-          <br />
-          <br />
-          Hello, Welcome to my website, I will be demonstrating HTML5 principles
-          and techniques, Routing in Express, and sharing information of
-          students and courses, also you can browsing lots of multimedia right
-          here !
-          <br />
-          <br />
-          <h2>Introduction of website</h2>
-          <br />
-          <br />
-          <p>
-            This site consists of 3 static views (<a href="/">Home</a>,
-            <a href="/about">About</a>, <a href="/htmlDemo">HTML Demo</a>) as
-            well as 5 routes that supply data , including:
-            <a href="/students">All Students</a>,
-            <a href="/students?course=3">Students by Course</a>,
-            <a href="/student/2">A Single Student By Student Number</a>,
-            <a href="/tas">All TAs</a> and <a href="/courses">All Courses</a>.
-          </p>
-          <br />
-          <br />
-          <h2>Introduction of HTML5</h2>
-          <br />
-          <br />
-          <p>
-            This site utilizes HTML5: a markup language used for structuring and
-            presenting content on the World Wide Web
-          </p>
-
-          <!-- End your code here  -->
-        </main>
-      </div>
-    </div>
-
+    <main>{{{body}}}</main>
+   
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

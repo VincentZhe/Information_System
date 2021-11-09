@@ -94,7 +94,15 @@ h2 {
 .container .row .col-md-12 legend {
   padding-top: 15px;
   padding-bottom: 15px;
+
   font-family: "Great Vibes", cursive;
   color: yellow;
   text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+}
+
+.row,
+.row legend,
+.row h2 {
+  padding-left: 20px;
+  padding-right: 20px;
 }
