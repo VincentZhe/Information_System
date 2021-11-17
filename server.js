@@ -127,9 +127,9 @@ app.get("/course/:Id", (req, res) => {
     });
 });
 // Get /student/num
-app.get("/student/:num", (req, res) => {
+app.get("/student/:studentNum", (req, res) => {
   dataModule
-    .getStudentByNum(req.params.num)
+    .getStudentByNum(req.params.studentNum)
     .then((data) => {
       res.render("student", { student: data });
     })
@@ -164,8 +164,12 @@ app.post("/students/add", (req, res) => {
 });
 // Post /student/update
 app.post("/student/update", (req, res) => {
-  console.log(req.body);
-  res.redirect("/students");
+  dataModule
+    .updateStudent(req.body)
+    .then(res.redirect("/students"))
+    .catch((err) => {
+      res.json({ message: err });
+    });
 });
 // no matching route
 app.use((req, res) => {

@@ -1,10 +1,6 @@
 <div class="row">
 <div class="col-md-12">
-    <div class="col-md-12 text-center"> 
-        {{#unless courses}}
-        <strong>{{message}}</strong>
-        {{/unless}}
-    </div>
+    
 <br> <h2>Courses</h2> <hr />
 <div class="table-responsive">
 <table class="table">
@@ -15,13 +11,24 @@
         </tr>
     </thead>
     <tbody>
+        
         {{#each courses}}
         <tr>
             <td><a href="/course/{{courseId}}">{{courseCode}}</a></td>
             <td><a href="/students?course={{courseId}}">{{courseDescription}}</a></td>
+            
         </tr>
         {{/each}}
+        
+        
     </tbody>
+    
 </table>
+    {{#unless courses}}
+        <div class="col-md-12 text-center"> 
+        <strong>{{message}}</strong>
+        </div>
+    {{/unless}}
 </div>
-</div> </div>
+</div> 
+</div>

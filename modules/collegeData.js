@@ -125,10 +125,16 @@ module.exports.getCourseById = function (id) {
 // Build updateStudent
 module.exports.updateStudent = function (studentData) {
   return new Promise((resolve, reject) => {
+    if (studentData.TA == undefined) {
+      studentData.TA = false;
+    } else {
+      studentData.TA = true;
+    }
     for (let i = 0; i < dataCollection.students.length; i++) {
-      if (dataCollection.students[i].studentNum == studentData){
-        
+      if (dataCollection.students[i].studentNum == studentData.studentNum) {
+        dataCollection.students[i] = studentData;
       }
     }
+    resolve();
   });
 };
