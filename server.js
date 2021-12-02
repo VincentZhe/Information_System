@@ -1,13 +1,12 @@
 /*********************************************************************************
- * WEB700 – Assignment 05
+ * WEB700 – Assignment 06
  * I declare that this assignment is my own work in accordance with Seneca Academic Policy. No part
  * of this assignment has been copied manually or electronically from any other source
  * (including 3rd party web sites) or distributed to other students. *
- * Name: Zhe Tian Student ID: ztian18, 107103210 Date: Nov. 8 2021 *
- * Online (Heroku) Link: ________________________________________________________
+ * Name: Zhe Tian Student ID: ztian18, 107103210 Date: Nov. 24 2021 *
+ * Online (Heroku) Link: https://morning-ridge-23277.herokuapp.com/
  * ********************************************************************************/
 
-var HTTP_PORT = process.env.PORT || 8080;
 const express = require("express");
 
 const exphbs = require("express-handlebars");
@@ -58,14 +57,20 @@ app.use(function (req, res, next) {
   next();
 });
 
+var HTTP_PORT = process.env.PORT || 8080;
+
 app.get("/students", (req, res) => {
   if (req.query.course) {
     dataModule
       .getStudentsByCourse(req.query.course)
       .then((data) => {
-        res.render("students", {
-          students: data,
-        });
+        if (data.length > 0) {
+          res.render("students", {
+            students: data,
+          });
+        } else {
+          res.render("students", { message: "no results" });
+        }
       })
       .catch((err) => {
         res.render("students", {
@@ -76,11 +81,15 @@ app.get("/students", (req, res) => {
     dataModule
       .getAllStudents()
       .then((data) => {
-        res.render("students", {
-          students: data,
-        });
+        if (data.length > 0) {
+          res.render("students", {
+            students: data,
+          });
+        } else {
+          res.render("students", { message: "no results" });
+        }
       })
-      .catch((err) => {
+      .catch(() => {
         res.render("students", {
           message: "no results",
         });
@@ -88,24 +97,28 @@ app.get("/students", (req, res) => {
   }
 });
 // Get /tas
-// app.get("/tas", (req, res) => {
-//   dataModule
-//     .getTAs()
-//     .then((data) => {
-//       res.json(data);
-//     })
-//     .catch((err) => {
-//       res.json({ message: err });
-//     });
-// });
+app.get("/tas", (req, res) => {
+  dataModule
+    .getTAs()
+    .then((data) => {
+      res.json(data);
+    })
+    .catch((err) => {
+      res.json({ message: err });
+    });
+});
 // Get /courses
 app.get("/courses", (req, res) => {
   dataModule
     .getCourses()
     .then((data) => {
-      res.render("courses", {
-        courses: data,
-      });
+      if (data.length > 0) {
+        res.render("courses", {
+          courses: data,
+        });
+      } else {
+        res.render("courses", { message: "no results" });
+      }
     })
     .catch((err) => {
       res.render("courses", {
@@ -118,7 +131,11 @@ app.get("/course/:Id", (req, res) => {
   dataModule
     .getCourseById(req.params.Id)
     .then((data) => {
-      res.render("course", { course: data });
+      if (data == undefined) {
+        res.status(404).send("Course Not Found");
+      } else {
+        res.render("course", { course: data });
+      }
     })
     .catch((err) => {
       res.render("course", {
@@ -128,15 +145,40 @@ app.get("/course/:Id", (req, res) => {
 });
 // Get /student/num
 app.get("/student/:studentNum", (req, res) => {
+  let viewData = {};
   dataModule
     .getStudentByNum(req.params.studentNum)
     .then((data) => {
-      res.render("student", { student: data });
+      if (data) {
+        viewData.student = data;
+      } else {
+        viewData.student = null;
+      }
     })
-    .catch((err) => {
-      res.json({ message: err });
+    .catch(() => {
+      viewData.student = null;
+    })
+    .then(dataModule.getCourses)
+    .then((data) => {
+      viewData.courses = data;
+      for (let i = 0; i < viewData.courses.length; i++) {
+        if (viewData.courses[i].courseId == viewData.student.course) {
+          viewData.courses[i].selected = true;
+        }
+      }
+    })
+    .catch(() => {
+      viewData.courses = [];
+    })
+    .then(() => {
+      if (viewData.student == null) {
+        res.status(404).send("Student Not Found");
+      } else {
+        res.render("student", { viewData: viewData });
+      }
     });
 });
+
 // Get /
 app.get("/", (req, res) => {
   res.render("home");
@@ -150,8 +192,13 @@ app.get("/htmlDemo", (req, res) => {
   res.render("htmlDemo");
 });
 // Get /students/add
-app.get("/students/add", (req, res) => {
-  res.render("addStudent");
+app.get("/students/add/", (req, res) => {
+  dataModule
+    .getCourses()
+    .then((data) => res.render("addStudent", { courses: data }))
+    .catch((err) => {
+      res.render("addStudent", { courses: [] });
+    });
 });
 // Post /students/add
 app.post("/students/add", (req, res) => {
@@ -169,6 +216,48 @@ app.post("/student/update", (req, res) => {
     .then(res.redirect("/students"))
     .catch((err) => {
       res.json({ message: err });
+    });
+});
+// Add course
+app.get("/courses/add", (req, res) => {
+  res.render("addCourse");
+});
+// Post course
+app.post("/courses/add", (req, res) => {
+  dataModule
+    .addCourse(req.body)
+    .then(res.redirect("/courses"))
+    .catch((err) => res.json({ message: err }));
+});
+// Update Course
+app.post("/course/update", (req, res) => {
+  dataModule
+    .updateCourse(req.body)
+    .then(res.redirect("/courses"))
+    .catch((err) => {
+      res.json({ message: err });
+    });
+});
+// Delete Course By Id
+app.get("/course/delete/:id", (req, res) => {
+  dataModule
+    .deleteCourse(req.params.id)
+    .then(() => res.render("/courses"))
+    .catch((err) =>
+      res
+        .status(500)
+        .json({ message: "Unable to Remove Course/Course not found" })
+    );
+});
+// Delete specific student
+app.get("/student/delete/:studentNum", (req, res) => {
+  dataModule
+    .deleteStudentByNum(req.params.studentNum)
+    .then(() => res.redirect("/students"))
+    .catch((err) => {
+      res
+        .status(500)
+        .json({ message: "Unable to Remove Student/Student not found" });
     });
 });
 // no matching route

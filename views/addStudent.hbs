@@ -96,8 +96,18 @@
                 <div class="col-md-4">
                   <div class="form-group">
                     <label for="course">Enrolled in Course:</label>
+                    {{#if courses}}
                     <select class="form-control" name="course" id="course">
-                      <option value="1">
+                      <option value="">Select Course</option>
+                      {{#each courses}}
+                        <option value="{{courseId}}">{{courseCode}}</option> 
+                        {{/each}}
+                        </select>
+                        {{else}}
+                        <div>No Course</div>
+                        {{/if}}
+
+                      {{!-- <option value="1">
                         Relational Database Design and Implementation
                       </option>
                       <option value="2">Java Programming</option>
@@ -118,8 +128,8 @@
                       <option value="11">
                         Work Term Preparation (Work-Integrated Learning option
                         only)
-                      </option>
-                    </select>
+                      </option> --}}
+                    
                   </div>
                 </div>
               </div>
